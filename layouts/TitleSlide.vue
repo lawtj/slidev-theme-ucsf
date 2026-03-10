@@ -61,7 +61,7 @@ const props = withDefaults(defineProps<Props>(), {
            style="border-top: 1px solid rgba(255,255,255,0.15);">
         <div v-if="presenter" class="presenter-name">{{ presenter }}</div>
         <div v-if="role" class="presenter-meta">{{ role }}</div>
-        <div v-if="institution" class="presenter-meta">{{ institution }}</div>
+        <div v-if="institution" class="presenter-meta" v-html="institution"></div>
         <div v-if="date" class="presenter-date">{{ date }}</div>
       </div>
     </div>
