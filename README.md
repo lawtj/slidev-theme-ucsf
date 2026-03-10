@@ -44,6 +44,41 @@ This theme provides the following components:
 
 - None yet (theme-focused layouts and styles)
 
+## Asset Pattern
+
+For GitHub Pages deployments, keep any image that is referenced from:
+
+- slide frontmatter like `image:` or `background:`
+- Vue component props like `<RevealImage src="..." />`
+- custom theme layouts/components
+
+in `public/assets/`, and reference it with an absolute path such as `/assets/title.jpg`.
+
+Why this pattern:
+
+- Slidev/Vite can statically bundle images used directly in markdown like `![x](./image.png)`.
+- Frontmatter values and component prop strings are not statically analyzable, so files under `assets/` can 404 after build.
+- Files in `public/` are copied as-is, and the theme layouts in this repo prefix them with `import.meta.env.BASE_URL`, so they work on GitHub Pages.
+
+Recommended examples:
+
+```md
+---
+layout: image-right
+image: /assets/etco2.jpg
+---
+
+<img src="/assets/cboutcomes.png" alt="Outcomes chart">
+
+<RevealImage src="/assets/backboard.png" />
+```
+
+If you build for GitHub Pages, use a base-aware build command such as:
+
+```bash
+npm run build -- --base /<repository-name>/
+```
+
 ## Publish to npm
 
 1. Log in to npm:
