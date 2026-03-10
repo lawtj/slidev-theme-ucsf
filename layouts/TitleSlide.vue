@@ -4,7 +4,7 @@ import { resolveAssetUrl } from '@slidev/client/layoutHelper.ts'
 interface Props {
   image?: string
   imageAlt?: string
-  presenter?: string
+  speaker?: string
   role?: string
   institution?: string
   date?: string
@@ -13,7 +13,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   image: '',
   imageAlt: '',
-  presenter: '',
+  speaker: '',
   role: '',
   institution: '',
   date: '',
@@ -50,10 +50,10 @@ const props = withDefaults(defineProps<Props>(), {
       </div>
 
       <!-- Presenter block -->
-      <div v-if="presenter || role || institution"
+      <div v-if="speaker || role || institution"
            class="presenter-block pt-5"
            style="border-top: 1px solid rgba(255,255,255,0.15);">
-        <div v-if="presenter" class="presenter-name">{{ presenter }}</div>
+        <div v-if="speaker" class="presenter-name">{{ speaker }}</div>
         <div v-if="role" class="presenter-meta">{{ role }}</div>
         <div v-if="institution" class="presenter-meta" v-html="institution"></div>
         <div v-if="date" class="presenter-date">{{ date }}</div>
