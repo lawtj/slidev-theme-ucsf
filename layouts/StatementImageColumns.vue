@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { withBase } from 'vite'
+const withBase = (path: string) => (import.meta.env.BASE_URL + path.replace(/^\//, '')).replace(/\/\//g, '/')
 
 interface Props {
   image?: string
