@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const withBase = (path: string) => (import.meta.env.BASE_URL + path.replace(/^\//, '')).replace(/\/\//g, '/')
+import { resolveSlideAsset } from '../../utils/resolveSlideAsset'
 
 interface Props {
   image?: string
@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
     <div class="image-area flex items-center justify-center overflow-hidden px-8 py-2">
       <img
         v-if="image"
-        :src="withBase(image)"
+        :src="resolveSlideAsset(image)"
         :alt="imageAlt"
         :style="`object-position: ${imagePosition}`"
         class="max-w-full max-h-full object-contain"
