@@ -1,0 +1,44 @@
+{
+  "name": "slidev-theme-ucsf",
+  "version": "0.1.0",
+  "description": "A UCSF-inspired Slidev theme.",
+  "type": "module",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "files": [
+    "layouts",
+    "components",
+    "setup",
+    "styles",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "slidev build example.md",
+    "dev": "slidev example.md --open",
+    "export": "slidev export example.md",
+    "screenshot": "slidev export example.md --format png",
+    "pack:check": "npm pack --dry-run --cache .npm-cache",
+    "prepublishOnly": "npm run pack:check"
+  },
+  "dependencies": {
+    "@slidev/types": "^52.11.3"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.11.3"
+  },
+  "//": "Learn more: https://sli.dev/guide/write-theme.html",
+  "slidev": {
+    "colorSchema": "both",
+    "defaults": {
+      "fonts": {
+        "sans": "Nunito Sans",
+        "mono": "Fira Code"
+      }
+    }
+  }
+}
