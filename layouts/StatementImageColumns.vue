@@ -1,11 +1,5 @@
 <script setup lang="ts">
-const withBase = (path: string) => {
-  if (/^(https?:)?\/\//.test(path) || path.startsWith('data:'))
-    return path
-  if (!path.startsWith('/'))
-    return path
-  return `${import.meta.env.BASE_URL}${path.slice(1)}`
-}
+import { resolveAssetUrl } from '@slidev/client/layoutHelper.ts'
 
 interface Props {
   image?: string
@@ -32,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
     <div class="image-area flex items-center justify-center overflow-hidden px-8 py-2">
       <img
         v-if="image"
-        :src="withBase(image)"
+        :src="resolveAssetUrl(image)"
         :alt="imageAlt"
         :style="`object-position: ${imagePosition}`"
         class="max-w-full max-h-full object-contain"
