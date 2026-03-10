@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from 'vite'
+
 interface Props {
   image?: string
   imageAlt?: string
@@ -23,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
     <div class="image-panel relative shrink-0" style="width: 54%;">
       <img
         v-if="image"
-        :src="image"
+        :src="withBase(image)"
         :alt="imageAlt"
         :style="`object-position: ${imagePosition}`"
         class="absolute inset-0 w-full h-full object-cover"

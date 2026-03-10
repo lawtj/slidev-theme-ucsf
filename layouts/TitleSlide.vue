@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from 'vite'
+
 interface Props {
   image?: string
   imageAlt?: string
@@ -24,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
     <!-- Full-bleed background image -->
     <img
       v-if="image"
-      :src="image"
+      :src="withBase(image)"
       :alt="imageAlt"
       class="absolute inset-0 w-full h-full object-cover"
     />
