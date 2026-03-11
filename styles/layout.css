@@ -83,10 +83,6 @@
     color: #ffffff;
   }
 
-  p, li, span, div {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
   strong {
     color: #7dd3fc;
   }
