@@ -35,10 +35,10 @@ const props = withDefaults(defineProps<Props>(), {
 
     <!-- Gradient overlay: solid navy left → transparent right -->
     <div class="absolute inset-0"
-         style="background: linear-gradient(to right, #041d45 0%, #041d45 42%, rgba(4,29,69,0.55) 68%, transparent 100%);"></div>
+         style="background: linear-gradient(to right, #041d45 0%, #041d45 32%, rgba(4,29,69,0.55) 58%, transparent 100%);"></div>
 
     <!-- Content: sits above overlays -->
-    <div class="relative h-full flex flex-col px-12 pt-10 pb-14" style="width: 58%;">
+    <div class="relative h-full flex flex-col px-12 pt-10 pb-14" style="width: 75%;">
 
       <!-- Sky accent bar -->
       <div class="mb-8 h-[3px] w-14 rounded-full"

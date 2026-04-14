@@ -4,7 +4,7 @@
     class="absolute 
     left-0 
     top-50 
-    w-4/5 h-25 rounded-xl shadow-lg p-8 flex flex-col justify-center items-start bg-gradient-to-r from-cyan-300 to-blue-700
+    w-4/5 h-25 rounded-xl shadow-lg p-8 flex flex-col justify-center items-start bg-gradient-to-r from-cyan-300 to-blue-900
     
     "
   >
