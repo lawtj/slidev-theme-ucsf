@@ -1,5 +1,5 @@
 <!--
-  CardGrid — color-coded card layout with optional v-click reveals.
+  CardGrid — color-coded card layout with per-card v-click reveals.
 
   Usage:
     <CardGrid :items="[
@@ -9,18 +9,19 @@
       { title: 'Ventilation', body: '→ oxygen in, pressure balance', color: 'sky' },
     ]" />
 
-    Without click reveals:
-    <CardGrid :items="[...]" :reveal="false" />
-
     Three columns:
     <CardGrid :items="[...]" cols="3" />
 
   Props:
     items   — array of { title, body, color } objects (required)
     cols    — '2' | '3' | '4' (default: '2')
-    reveal  — wrap each card in v-click (default: true)
 
   Colors: red, amber, yellow, green, blue, sky, purple, gray
+
+  Notes:
+    Keep <v-click> explicit in the template. Rendering it indirectly via
+    <component :is="..."> breaks Slidev click tracking and can cause all cards
+    to appear at once.
 -->
 
 <script setup lang="ts">
@@ -33,12 +34,10 @@ interface CardItem {
 interface Props {
   items: CardItem[]
   cols?: '2' | '3' | '4'
-  reveal?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   cols: '2',
-  reveal: true,
 })
 
 const colsClass: Record<string, string> = {
@@ -67,7 +66,7 @@ function colors(color?: string) {
 <template>
   <div class="grid gap-6 mt-8" :class="colsClass[cols]">
     <template v-for="(item, i) in items" :key="i">
-      <component :is="reveal ? 'v-click' : 'div'">
+      <v-click>
         <div
           class="border rounded-lg p-4 text-center"
           :class="[colors(item.color).bg, colors(item.color).border]"
@@ -79,7 +78,7 @@ function colors(color?: string) {
             {{ item.body }}
           </div>
         </div>
-      </component>
+      </v-click>
     </template>
   </div>
 </template>
