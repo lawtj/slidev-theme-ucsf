@@ -25,10 +25,13 @@
 -->
 
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
+
 interface CardItem {
   title: string
   body?: string
   color?: string
+  icon?: string
 }
 
 interface Props {
@@ -71,6 +74,7 @@ function colors(color?: string) {
           class="border rounded-lg p-4 text-center"
           :class="[colors(item.color).bg, colors(item.color).border]"
         >
+          <Icon v-if="item.icon" :icon="item.icon" class="text-3xl mx-auto mb-2" :class="colors(item.color).title" />
           <div class="font-bold text-lg" :class="colors(item.color).title">
             {{ item.title }}
           </div>
