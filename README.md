@@ -33,16 +33,20 @@ Learn more about [how to use a theme](https://sli.dev/guide/theme-addon#use-them
 
 This theme provides the following layouts:
 
+- `TitleSlide`
 - `SectionEditor`
-- `TwoColumnCards`
-- `ThreeColumnCards`
+- `ContrastImageRight`
+- `StatementImageColumns`
 - `threenocard`
 
 ## Components
 
 This theme provides the following components:
 
-- None yet (theme-focused layouts and styles)
+- `BigStat`
+- `CardGrid`
+- `RevealImage`
+- `SectionDots`
 
 ## Asset Pattern
 

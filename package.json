@@ -26,6 +26,7 @@
     "prepublishOnly": "npm run pack:check"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.2",
     "@slidev/types": "^52.11.3"
   },
   "devDependencies": {
